@@ -1,7 +1,16 @@
-var Pangram = function() {};
+(function () {
+  module.exports = function (str) {
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var len = alphabet.length;
 
-Pangram.prototype.isPangram = function(dna) {
-    
-}
-
-module.exports = Pangram; 
+    this.isPangram = function () {
+      str = str.toLowerCase();
+      for (var i = 0; i < len; i++) {
+        if (!str.includes(alphabet[i])) {
+          return false;
+        }
+      }
+      return true;
+    }
+  };
+})();
